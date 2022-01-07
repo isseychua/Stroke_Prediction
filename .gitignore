@@ -3,3 +3,6 @@ Archive
 
 #ignore all Results code
 Results
+
+#ignore all venv code
+venv

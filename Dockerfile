@@ -1,6 +1,7 @@
-FROM python:3
+# Define base image
+FROM continuumio/miniconda3
 
-WORKDIR /code
-COPY . /code
-RUN pip install -r requirements.txt
-CMD ["python","main_1.0.py"]
+COPY . .
+RUN conda env create -f environment.yml
+SHELL ["conda", "run", "-n", "SPenv", "/bin/bash", "-c"]
+ENTRYPOINT ["conda", "run", "-n", "SPenv", "python", "main_1.0.py"]
