@@ -46,20 +46,20 @@ Main.bivariate_cat(2,8)
 #Filter age>36
 Main.Filtered_df(60,90)
 #Label Encoder
-Main.Label_Encoder(["gender","ever_married","work_type","Residence_type","smoking_status"])
+Main.Label_Encoder(Main.Type_Obj)
 
 #Modelling
 Main.Initiate_ML_Algo()
-Main.Create_Result_Table(["Lr","Bagging","Boosting","Stacking"])
+Main.Create_Result_Table(Main.Result_Table_Column)
 #Create train and test set
 Main.X_Y_df("stroke")
 #Train_Test_Split followed by SMOTE oversampling
 Main.SKFold(5,True,1)
-Main.KFold_For_Loop(["Lr","Bagging","Boosting","Stacking"])
+Main.KFold_For_Loop(Main.Result_Table_Column)
 #Calculate the average f1 score for each method
-Main.Ave_Score(["Lr","Bagging","Boosting","Stacking"])
+Main.Ave_Score(Main.Result_Table_Column)
 print(Main.Result_Table)
 
 #Export table of results in csv
-Main.Export_Results_Csv("results_filtered_age_above_36_ros.txt",False)
+Main.Export_Results_Csv("results_filtered_age_above_60_gluclose_below_90_ros.txt",False)
 

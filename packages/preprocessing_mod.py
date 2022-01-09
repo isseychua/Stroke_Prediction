@@ -57,6 +57,9 @@ class Preprocessing_Class():
         self.Col=self.df.columns.tolist()
         self.Num_Col=["id","age","avg_glucose_level","bmi"]
         self.Cat_Col=["hypertension","heart_disease","gender","ever_married","work_type","Residence_type","smoking_status","stroke"]
+        self.Type_Obj=["gender","ever_married","work_type","Residence_type","smoking_status"]
+        self.Result_Table_Column=["Lr","Bagging","Boosting","Stacking"]
+
 
     def check_fill_nan(self,List_of_nan):
         """
