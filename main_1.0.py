@@ -12,6 +12,7 @@ from packages.modelling_mod import modelling_class
 class main(Preprocessing_Class,eda_class,featureengineering_class,modelling_class):
     pass
 
+#Preprocessing
 Main=main("./Source/healthcare-dataset-stroke-data.csv")
 #Inspect dataframe
 Main.inspect_dataframe()
@@ -31,14 +32,20 @@ Main.drop_outliers()
 print(Main.df.shape)
 
 #EDA
+#
+#Create dataframe for positive stroke
+Main.Create_positive_stroke_df("stroke")
 #Uni Variate analysis
-Main.univariate_num(2,2)
-Main.univariate_cat(2,4)
+Main.univariate_num(2,4)
+Main.univariate_cat(2,8)
 #Bi Variate analysis
-Main.bivariate_num(2,2)
-Main.bivariate_cat(2,4)
+Main.bivariate_num(2,4)
+Main.bivariate_cat(2,8)
 
 #Feature Engineering
+#Filter age>36
+Main.Filtered_df(60,90)
+#Label Encoder
 Main.Label_Encoder(["gender","ever_married","work_type","Residence_type","smoking_status"])
 
 #Modelling
@@ -54,5 +61,5 @@ Main.Ave_Score(["Lr","Bagging","Boosting","Stacking"])
 print(Main.Result_Table)
 
 #Export table of results in csv
-Main.Export_Results_Csv("results_ros.txt",False)
+Main.Export_Results_Csv("results_filtered_age_above_36_ros.txt",False)
 
