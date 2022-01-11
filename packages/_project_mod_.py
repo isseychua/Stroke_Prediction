@@ -2,16 +2,16 @@
 import pandas as pd
 import numpy as np
 
-from packages.preprocessing_mod import read_csv_to_df, inspect_dataframe, inspect_stroke, Export_Results_Csv
-from packages.eda_mod import univariate_num, univariate_cat
-from packages.feature_engineering_mod import list_of_columns, check_fill_nan, check_drop_duplicated, check_outliers, drop_outliers, Label_Encoder
-from packages.modelling_mod import Initiate_ML_Algo, create_result_table, x_y_df, SKFold, KFold_For_Loop, Ave_Score
+from packages._preprocessing_mod_ import read_csv_to_df, inspect_dataframe, inspect_stroke, Export_Results_Csv
+from packages._eda_mod_ import univariate_num, univariate_cat
+from packages._categorisation_mod_ import list_of_columns
+from packages._feature_engineering_mod_ import check_fill_nan, check_drop_duplicated, check_outliers, drop_outliers, Label_Encoder
+from packages._modelling_mod_ import Initiate_ML_Algo, create_result_table, x_y_df, SKFold, KFold_For_Loop, Ave_Score
 
 def preprocessing(string_data_dir_path):
     #Preprocessing
     df_all_data=read_csv_to_df(string_data_dir_path)
     #Inspect dataframe
-    inspect_dataframe(df_all_data)
     #Inspect Stroke ratio
     inspect_stroke(df_all_data)
     return df_all_data

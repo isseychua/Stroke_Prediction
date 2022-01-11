@@ -4,7 +4,7 @@ import numpy as np
 import warnings
 warnings.filterwarnings("ignore")
 
-from packages.project_mod import preprocessing, data_categorisation, eda, featureengineering, modelling
+from packages._project_mod_ import preprocessing, data_categorisation, eda, featureengineering, modelling
 
 #Retrieve data from dataset and inspect dataset
 df_all_data=preprocessing("./Source/healthcare-dataset-stroke-data.csv")
